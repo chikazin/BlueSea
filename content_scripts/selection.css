@@ -3,7 +3,8 @@ xmark.gloab-xmark {
   padding-left: 3px;
   padding-right: 3px;
   text-decoration-style: wavy;
-  text-decoration-color: rgb(57, 136, 255);
+  /*text-decoration-color: rgb(57, 136, 255);*/
+  text-decoration-color: rgb(255, 148, 0);
   text-decoration-line: underline;
   text-decoration-skip-ink: none;
   position: relative;
