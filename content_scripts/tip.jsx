@@ -82,10 +82,13 @@ function makeTipEl(root, options, isBottom) {
   const App = () => {
     // 仅单词时发音
     const isOneWord = options.text.split(' ').length === 1;
+    /* 尝试短语翻译 */
+    const isPhrase = options.text.split(' ').length > 1 && options.text.split(' ').length < 5;
 
     const audioRef = useRef();
     const [tfData, setTfData] = useState(null);
-    const [ableTranslation, setAbleTranslation] = useState(isOneWord);
+    // const [ableTranslation, setAbleTranslation] = useState(isOneWord);
+    const [ableTranslation, setAbleTranslation] = useState(isOneWord||isPhrase);
 
     useEffect(() => {
       if (ableTranslation) {
@@ -283,12 +286,16 @@ function makeTipEl(root, options, isBottom) {
               ></div>
               <div
                 style=${{
-                  color: !isOneWord && '#888',
-                  cursor: !isOneWord && 'not-allowed',
+                  // color: !isOneWord && '#888',
+                  // cursor: !isOneWord && 'not-allowed',
+                  color: !isOneWord&&!isPhrase && '#888',
+                  cursor: !isOneWord &&!isPhrase && 'not-allowed',
                 }}
                 class="bluesea-tip-btn"
                 onclick=${() => {
-                  if (isOneWord) {
+                  // if (isOneWord) {
+                  // 允许单词和短语收藏
+                  if (isOneWord||isPhrase) {
                     options.onMark(tfData);
                   }
                 }}
