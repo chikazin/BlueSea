@@ -218,7 +218,7 @@ function makeBulletApp(
           display: animationRunning ? 'none' : operated ? 'flex' : 'none',
         }}
       >
-      <div style=${{'box-shadow': 'rgba(0, 0, 0, 0.4) 0px 0px 8px',position: 'absolute',background: 'wheat',left: '200px',width: '100%', top: 0,display:isMore?'block':'none'}} >
+      <div style=${{'box-shadow': 'rgba(0, 0, 0, 0.4) 0px 0px 8px',position: 'absolute',background: 'wheat',left: '200px',width: '120%', top: 0,display:isMore?'block':'none'}} >
         <${TfCard} tfData=${material.youdao} />
       </div>
         <div
