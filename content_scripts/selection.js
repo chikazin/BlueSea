@@ -41,8 +41,10 @@ const listenMouseup = (e) => {
         return;
       }
 
-      if (!/.*[a-zA-Z]{3,}.*/.test(selectText)) {
+      // if (!/.*[a-zA-Z]{3,}.*/.test(selectText)) {
+      if (!/.*[a-zA-Z]{2,}.*/.test(selectText)) {
         // console.log('所选内容必须存在连续3个及以上字母时，才展开翻译');
+        // console.log('存在连续2个及以上字母时，就展开翻译，有些短语如as to 也需翻译');
         return;
       }
 
