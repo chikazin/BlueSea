@@ -208,6 +208,13 @@ function makeBulletApp(
           }}
           >${material.translation}</span
         >
+        <span style=${{'text-align': 'center',color: 'rgb(39 150 248)','border-radius': '4px',padding: '4px 5px',cursor: 'pointer','user-select': 'none',display: animationRunning ? 'none':'inline'}}
+         onClick=${()=>{
+            if (material.addFrom) {
+              window.open(material.addFrom+'#:~:text='+material.text, '_blank');
+            }
+          }}
+        >^</span>
       </div>
 
       <div
