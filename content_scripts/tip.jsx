@@ -266,6 +266,29 @@ function makeTipEl(root, options, isBottom) {
               >
                 编辑
               </div>
+              <div
+                  style="
+                  width: 1px;
+                  height: 16px;
+                  background: #666;
+                  "
+              ></div>
+              <div
+                  style=${{
+                    // color: !isOneWord && '#888',
+                    // cursor: !isOneWord && 'not-allowed',
+                    color: !isOneWord&&!isPhrase && '#888',
+                    cursor: !isOneWord &&!isPhrase && 'not-allowed',
+                  }}
+                  class="bluesea-tip-btn"
+                  onclick=${() => {
+                    if(tfData.query){
+                      bluesea.delMaterial(tfData.query)
+                    }
+                  }}
+              >
+                删除
+              </div>
             </div>
           </div>`
         : html`<div class="bluesea-tip-row">
