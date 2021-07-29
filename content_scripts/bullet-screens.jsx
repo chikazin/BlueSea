@@ -97,6 +97,7 @@ function makeBulletApp(
     const [operated, setOperated] = useState(null);
     const [animationRunning, setAnimationRunning] = useState(true);
     const [isMore,setisMore] = useState(true);
+    const [isDel,setisDel] = useState(false);
 
     const audioRef = useRef();
 
@@ -208,7 +209,7 @@ function makeBulletApp(
           }}
           >${material.translation}</span
         >
-        <span style=${{'text-align': 'center',color: 'rgb(39 150 248)','border-radius': '4px',padding: '4px 5px',cursor: 'pointer','user-select': 'none',display: animationRunning ? 'none':'inline'}}
+        <span title="查看来源" style=${{'text-align': 'center',color: 'rgb(39 150 248)','border-radius': '4px',padding: '4px 5px',cursor: 'pointer','user-select': 'none',display: animationRunning ? 'none':'inline'}}
          onClick=${()=>{
             if (material.addFrom) {
               window.open(material.addFrom+'#:~:text='+material.text, '_blank');
@@ -216,7 +217,19 @@ function makeBulletApp(
           }}
         >^</span>
       </div>
-
+      <span title="取消收藏" 
+          onclick=${() => {
+            if (material.text) {
+              bluesea.delMaterial(material.text);
+              setisDel(true);
+            }
+          }} 
+          style=${{
+        display: animationRunning ? 'none':'inline',
+        'margin-left':'4px',
+        cursor: 'pointer',
+        color:'red'
+      }}>${isDel?'ok':'🗑'}</span>
       <div
         style=${{
           alignItems: 'center',
